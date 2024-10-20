@@ -27,6 +27,6 @@ To run the application, follow these steps:
 
 ## 📖 More Info
 
-For more information about the game, rules, and features, visit our [Wiki](https://github.com/SakutaTHZ/Zlot/wiki).
+For more information about the game, rules, and features, visit our [Wiki](https://github.com/SakutaTHZ/Zlot.github.io/wiki).
 
 Happy spinning and good luck! 🎉
