@@ -8,10 +8,10 @@
   font-weight: 400;
   box-sizing: border-box;
   margin: 0%;
-  padding: 0%;
+  padding: 0%;  
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: white;
   background-color: #242424;
 
   font-synthesis: none;
@@ -20,13 +20,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 a {
   font-weight: 500;
-  color: #646cff;
+  color: white;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: white;
 }
 
 h1 {
@@ -55,11 +61,11 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: white;
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color:white;
   }
   button {
     background-color: #f9f9f9;

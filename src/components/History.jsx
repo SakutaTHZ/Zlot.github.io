@@ -184,7 +184,7 @@ const History = ({ history }) => {
                       ) : (
                         <FaCaretDown className="text-red-500" />
                       )}
-                      $ {spin.totalMoney.toLocaleString()}
+                      ${spin.totalMoney && spin.totalMoney.toLocaleString()}
                     </span>
                   </p>
                 </div>

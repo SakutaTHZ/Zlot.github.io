@@ -1,39 +1,63 @@
 import ProfileImage from "../assets/Pictures/Profile.jpg";
 import { useState } from "react";
 import useSound from "use-sound";
-import buySound from '../assets/sfx/buy.mp3'
-import topupSound from '../assets/sfx/topup.mp3'
+import buySound from "../assets/sfx/buy.mp3";
+import topupSound from "../assets/sfx/topup.mp3";
+import failSound from "../assets/sfx/Fail.mp3";
+import confetti from "canvas-confetti";
 
-const Profile = ({ money, setMoney , setShowMessage,setMessage}) => {
+const Profile = ({ money, setMoney, setShowMessage, setMessage }) => {
   const [showTopUpBox, setShowTopUpBox] = useState(false);
   const [showWithdrawBox, setShowWithdrawBox] = useState(false);
-  const [buyPlayer] = useSound(buySound)
-  const [topupPlayer] = useSound(topupSound)
+  const [buyPlayer] = useSound(buySound);
+  const [topupPlayer] = useSound(topupSound);
+  const [failPlayer] = useSound(failSound);
 
   // Handle top up
   const handleTopUp = (amount) => {
     const updatedMoney = money + amount;
     setMoney(() => updatedMoney);
+    setMessage(() => `You Top Up $${amount}`);
     setShowMessage(true);
     setTimeout(() => {
       setShowMessage(false);
     }, 5000);
-    setMessage(()=>`You Top Up $${amount}`)
+    confetti({
+      particleCount: 50,
+      spread: 100,
+      origin: { y: 0 },
+    });
     localStorage.setItem("money", updatedMoney);
-    JSON.parse(localStorage.getItem("sound")) && topupPlayer()
+    JSON.parse(localStorage.getItem("sound")) && topupPlayer();
   };
 
   // Handle withdraw
   const handleWithdraw = (amount) => {
-    const updatedMoney = money - amount;
-    setMoney(() => updatedMoney);
-    setShowMessage(true);
-    setTimeout(() => {
-      setShowMessage(false);
-    }, 5000);
-    setMessage(()=>`You Withdrew $${amount}`)
-    localStorage.setItem("money", updatedMoney);
-    JSON.parse(localStorage.getItem("sound")) && buyPlayer()
+    if (money - amount < 0) {
+      setMessage(() => `You Can't Withdrew More than you have`);
+      setShowMessage(true);
+      setTimeout(() => {
+        setShowMessage(false);
+      }, 5000);
+      JSON.parse(localStorage.getItem("sound")) && failPlayer();
+    } else {
+      const updatedMoney = money - amount;
+      setMoney(() => updatedMoney);
+      setShowMessage(true);
+      setTimeout(() => {
+        setShowMessage(false);
+      }, 5000);
+      setMessage(() => `You Withdrew $${amount}`);
+      localStorage.setItem("money", updatedMoney);
+      JSON.parse(localStorage.getItem("sound")) && buyPlayer();
+
+      confetti({
+        particleCount: 50,
+        spread: 100,
+        origin: { y: 0 },
+        shapes: ['star']
+      });
+    }
   };
 
   return (
