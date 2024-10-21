@@ -7,6 +7,7 @@ Welcome to **Zlot**, a unique and thrilling slot game that offers more than just
 ## 🚀 Getting Started
 
 To run the application, follow these steps:
+_If the initail data failed, try deleting the localstorage data_
 
 1. **Install dependencies**:
    
@@ -28,5 +29,6 @@ To run the application, follow these steps:
 ## 📖 More Info
 
 For more information about the game, rules, and features, visit our [Wiki](https://github.com/SakutaTHZ/Zlot.github.io/wiki).
+Check Preview here [preview](https://sakutathz.github.io/Zlot.github.io/)
 
 Happy spinning and good luck! 🎉
