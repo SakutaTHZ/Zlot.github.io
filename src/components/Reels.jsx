@@ -5,7 +5,6 @@ import React, {
   useImperativeHandle,
 } from "react";
 import ReelGrid from "./ReelGrid";
-import { PiCurrencyDollarSimpleBold } from "react-icons/pi";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import confetti from "canvas-confetti";
 import MessageBox from "./MessageBox";
@@ -241,6 +240,33 @@ const PAYLINES = [
       [2, 4],
     ],
     multiplier: 3,
+  },
+  {
+    name: "Circle Jackpot",
+    pattern: [
+      [0, 1],[0, 2],[0, 3],
+      [1, 0],[1, 4],
+      [2, 1],[2, 2],[2, 3],
+    ],
+    multiplier: 50,
+  },
+  {
+    name: "Checker Jackpot",
+    pattern: [
+      [0, 0],[0, 2],[0, 4],
+      [1, 1],[1, 3],
+      [2, 0],[2, 2],[2, 4],
+    ],
+    multiplier: 50,
+  },
+  {
+    name: "Mega Jackpot",
+    pattern: [
+      [0, 0],[0, 1],[0, 2],[0, 3],[0, 4],
+      [1, 0],[1, 1],[1, 2],[1, 3],[1, 4],
+      [2, 0],[2, 1],[2, 2],[2, 3],[2, 4],
+    ],
+    multiplier: 1000,
   },
 ];
 
